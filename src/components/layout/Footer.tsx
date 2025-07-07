@@ -1,61 +1,39 @@
+import { Link } from "react-router";
+
 const Footer = () => {
   return (
     <footer className="bg-white dark:bg-gray-900">
       <div className="container px-6 py-8 mx-auto">
         <div className="flex flex-col items-center text-center">
-          <a href="#">
-            <img
-              className="w-auto h-7"
-              src="https://merakiui.com/images/full-logo.svg"
-              alt=""
-            />
+          <a className="flex items-center p-2 font-bold text-3xl text-blue-700">
+            📚 Libra<p className="text-black">Track</p>
           </a>
 
           <div className="flex flex-wrap justify-center mt-6 -mx-4">
-            <a
-              href="#"
+            <Link
+              to="/"
               className="mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
-              aria-label="Reddit"
             >
-              {" "}
-              Home{" "}
-            </a>
-
-            <a
-              href="#"
+              Home
+            </Link>
+            <Link
+              to="/books"
               className="mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
-              aria-label="Reddit"
             >
-              {" "}
-              About{" "}
-            </a>
-
-            <a
-              href="#"
+              All Books
+            </Link>
+            <Link
+              to="/add-books"
               className="mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
-              aria-label="Reddit"
             >
-              {" "}
-              Teams{" "}
-            </a>
-
-            <a
-              href="#"
+              Add Books
+            </Link>
+            <Link
+              to="/borrow-summary"
               className="mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
-              aria-label="Reddit"
             >
-              {" "}
-              Privacy{" "}
-            </a>
-
-            <a
-              href="#"
-              className="mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
-              aria-label="Reddit"
-            >
-              {" "}
-              Cookies{" "}
-            </a>
+              Borrow Summary
+            </Link>
           </div>
         </div>
 
@@ -63,7 +41,7 @@ const Footer = () => {
 
         <div className="flex flex-col items-center sm:flex-row sm:justify-between">
           <p className="text-sm text-gray-500 dark:text-gray-300">
-            © Copyright 2021. All Rights Reserved.
+            © Copyright 2025. All Rights Reserved.
           </p>
 
           <div className="flex -mx-2">
