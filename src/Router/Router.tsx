@@ -3,7 +3,6 @@ import AddBooks from "@/Pages/AddBooks/AddBooks";
 import AllBook from "@/Pages/AllBooks/AllBook";
 import BorrowSummary from "@/Pages/BorrowSummary/BorrowSummary";
 import ErrorPage from "@/Pages/ErrorPage/ErrorPage";
-import Home from "@/Pages/Home/Home";
 import { createBrowserRouter } from "react-router";
 
 const router = createBrowserRouter([
@@ -13,11 +12,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: "/books",
+        path: "/",
         element: <AllBook />,
       },
       {

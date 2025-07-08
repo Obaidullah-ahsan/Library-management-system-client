@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 
 const Navbar = () => {
   return (
-    <header className="p-4 bg-gray-200 dark:text-gray-800">
+    <header className="p-4 bg-blue-200 dark:text-gray-800">
       <div className="container flex justify-between h-14 mx-auto">
         <a className="flex items-center px-2 font-bold text-2xl text-blue-700">
           📚 Libra<p className="text-black">Track</p>
@@ -11,20 +11,6 @@ const Navbar = () => {
           <li className="flex">
             <NavLink
               to="/"
-              className={({ isActive, isPending }) =>
-                isPending
-                  ? "pending"
-                  : isActive
-                  ? "flex items-center px-4 -mb-1 border-b-2 border-blue-700 text-blue-700 font-semibold dark:border-"
-                  : "flex items-center px-4 -mb-1 border-b-2 dark:border-"
-              }
-            >
-              Home
-            </NavLink>
-          </li>
-          <li className="flex">
-            <NavLink
-              to="/books"
               className={({ isActive, isPending }) =>
                 isPending
                   ? "pending"

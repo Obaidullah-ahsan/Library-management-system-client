@@ -1,3 +1,4 @@
+import ActionButton from "@/components/layout/ActionButton";
 import {
   Table,
   TableBody,
@@ -6,21 +7,19 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useGetBookQuery } from "@/redux/features/books/bookApi";
+import type { IBook } from "@/type";
 
-import { ArrowBigLeft } from "lucide-react";
-import { Link } from "react-router";
-// import Demo from "./demo";
 
 const AllBook = () => {
+  const { data } = useGetBookQuery(undefined);
+  const books = data?.data;
+  console.log(books);
   return (
-    <div className="container mx-auto">
-      <div className="flex items-center gap-2 my-4">
-        <Link to="/">
-          <ArrowBigLeft></ArrowBigLeft>
-        </Link>
-        <span className="text-xl font-medium uppercase">All Books</span>
-      </div>
-      <div>
+    <div className="container mx-auto px-7">
+      <div className="text-xl font-medium uppercase mt-4">All Books</div>
+
+      <div className="my-8">
         <Table>
           <TableHeader>
             <TableRow>
@@ -34,17 +33,21 @@ const AllBook = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            <TableRow>
-              <TableCell className="font-medium">INV001</TableCell>
-              <TableCell>Paid</TableCell>
-              <TableCell>Credit Card</TableCell>
-              <TableCell>Paid</TableCell>
-              <TableCell>Credit Card</TableCell>
-              <TableCell>$250.00</TableCell>
-              {/* <TableCell>
-                <Demo></Demo>
-              </TableCell> */}
-            </TableRow>
+            {books?.map((book: IBook, idx: number) => (
+              <TableRow key={idx}>
+                <TableCell className="font-medium">{book.title}</TableCell>
+                <TableCell>{book.author}</TableCell>
+                <TableCell>{book.genre}</TableCell>
+                <TableCell>{book.isbn}</TableCell>
+                <TableCell>{book.copies}</TableCell>
+                <TableCell>
+                  {book.available === true ? "Available" : "Unavailable"}
+                </TableCell>
+                <TableCell>
+                  <ActionButton book={book}></ActionButton>
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </div>
