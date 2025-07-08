@@ -11,7 +11,9 @@ import {
 import { useDeleteBookMutation } from "@/redux/features/books/bookApi";
 import type { IBook } from "@/type";
 import { Edit, Ellipsis, Trash } from "lucide-react";
-import Swal from 'sweetalert2'
+import { Link } from "react-router";
+import Swal from "sweetalert2";
+import { toast } from "sonner"
 
 interface ActionButtonProps {
   book: IBook;
@@ -29,15 +31,10 @@ function ActionButton({ book }: ActionButtonProps) {
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Yes, delete it!",
-      }).then(async(result) => {
+      }).then(async (result) => {
         if (result.isConfirmed) {
           await deleteBook(id).unwrap();
-          console.log("Book deleted successfully");
-          Swal.fire({
-            title: "Deleted!",
-            text: "Your book has been deleted.",
-            icon: "success",
-          });
+          toast("Book deleted successfully")
         }
       });
     } catch (err) {
@@ -45,7 +42,6 @@ function ActionButton({ book }: ActionButtonProps) {
     }
   };
 
-  console.log(book);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -57,7 +53,9 @@ function ActionButton({ book }: ActionButtonProps) {
         <DropdownMenuLabel>Book Actions</DropdownMenuLabel>
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <button>Edit Book</button>
+            <Link to={`/edit-book/${book._id}`}>
+              <button>Edit Book</button>
+            </Link>
             <DropdownMenuShortcut>
               <Edit></Edit>
             </DropdownMenuShortcut>

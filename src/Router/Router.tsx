@@ -1,3 +1,4 @@
+import EditBook from "@/components/layout/EditBook";
 import Root from "@/Layouts/Root";
 import AddBooks from "@/Pages/AddBooks/AddBooks";
 import AllBook from "@/Pages/AllBooks/AllBook";
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/borrow-summary",
         element: <BorrowSummary />,
+      },
+      {
+        path: "/edit-book/:id",
+        element: <EditBook />,
       },
     ],
   },

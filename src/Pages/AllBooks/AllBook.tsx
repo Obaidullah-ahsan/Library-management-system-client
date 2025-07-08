@@ -16,7 +16,7 @@ const AllBook = () => {
   const books = data?.data;
   console.log(books);
   return (
-    <div className="container mx-auto px-7">
+    <div className="container mx-auto px-7 min-h-[calc(100vh-365px)]">
       <div className="text-xl font-medium uppercase mt-4">All Books</div>
 
       <div className="my-8">
@@ -41,7 +41,7 @@ const AllBook = () => {
                 <TableCell>{book.isbn}</TableCell>
                 <TableCell>{book.copies}</TableCell>
                 <TableCell>
-                  {book.available === true ? "Available" : "Unavailable"}
+                  {book.copies > 0 ? "Available" : "Unavailable"}
                 </TableCell>
                 <TableCell>
                   <ActionButton book={book}></ActionButton>
