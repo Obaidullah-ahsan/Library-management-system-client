@@ -11,6 +11,7 @@ import { useAddBookMutation } from "@/redux/features/books/bookApi";
 import { ArrowBigLeft } from "lucide-react";
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { Link } from "react-router";
+import { toast } from "sonner";
 
 const AddBooks = () => {
   const [addBook] = useAddBookMutation();
@@ -41,7 +42,7 @@ const AddBooks = () => {
         description: "",
         copies: 0
       });
-      console.log("Book added successfully");
+      toast("Book Add successfully");
     } catch (error) {
       console.error("Failed to add book:", error);
     }

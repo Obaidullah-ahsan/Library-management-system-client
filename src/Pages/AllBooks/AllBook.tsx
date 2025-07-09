@@ -14,7 +14,6 @@ import type { IBook } from "@/type";
 const AllBook = () => {
   const { data } = useGetBookQuery(undefined);
   const books = data?.data;
-  console.log(books);
   return (
     <div className="container mx-auto px-7 min-h-[calc(100vh-365px)]">
       <div className="text-xl font-medium uppercase mt-4">All Books</div>
